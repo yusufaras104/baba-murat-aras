@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dogum gunun kutlu olsun babam</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f2f2f2;
+        padding: 50px;
+        overflow: hidden; /* Hide overflow to prevent scrollbars due to confetti */
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      #countdown {
+        font-size: 2em;
+        color: #ff6347;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Dogum gunun kutlu olsun babam, Nice mutlu senelere.</h1>
+    <p>
+      🎉 Doğum Günün Kutlu Olsun, Babacığım! 🎂 Her gün hayatımda olan sen,
+      gerçek bir armağansın ve bugün senin inanılmaz kişiliğini kutluyoruz. 🥳
+      Bilgeliğin, sevgin ve kahkahan her anımı özel kılıyor. 🎈 İşte birlikte
+      daha nice yıl mutluluk, macera ve güzel anılar biriktirmemize! 🎁 Sağlık,
+      sürprizler ve hak ettiğin tüm mutluluklarla dolu bir gün diliyorum. Harika
+      bir yolculuğa! 🚀👨‍👧‍👦 <br />
+      Bu yıl sana bereket, başarı ve devam eden mutluluk getirsin. 🌟🤲
+    </p><br><br><br>
+    <div id="countdown"></div>
+
+    <script>
+      // Function to create confetti
+      function createConfetti() {
+        var end = Date.now() + 15 * 1000; // Show confetti for 15 seconds
+
+        // Create confetti every 0.5 seconds
+        var interval = setInterval(function () {
+          if (Date.now() > end) {
+            clearInterval(interval);
+          }
+
+          // Generate confetti at a random position on the X-axis
+          confetti({
+            particleCount: 100,
+            spread: 160,
+            origin: { x: Math.random(), y: 0.6 },
+          });
+        }, 500);
+      }
+
+      // Call the createConfetti function when the page loads
+      window.onload = createConfetti;
+
+      // Update the countdown every 1 second
+      var x = setInterval(function () {
+        // Set the date we're counting down to (replace with your dad's birthday)
+        var countDownDate = new Date("January 26, 2024 00:00:00").getTime();
+
+        // Get the current date and time
+        var now = new Date().getTime();
+
+        // Calculate the remaining time
+        var distance = countDownDate - now;
+
+        // Calculate days, hours, minutes, and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display the countdown
+        document.getElementById("countdown").innerHTML ="Teknik aksaklıklar nedeniyle, hediyeleriniz yarın inşa edilecektir. Anlayışınız için teşekkür ederiz. 🕒✨" +
+          days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+        // If the countdown is over, show a birthday message
+        if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("countdown").innerHTML =
+            "Dogum gunun kutlu olsun babam";
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>
