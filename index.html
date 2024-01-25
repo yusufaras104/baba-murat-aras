@@ -86,16 +86,23 @@
             }, 1000);
         }
 
-        function sendNotification() {
-            // Check if the browser supports notifications and request permission
+        function checkAndAskNotificationPermission() {
             if ('Notification' in window) {
                 Notification.requestPermission().then(function(permission) {
                     if (permission === 'granted') {
-                        var notification = new Notification('Happy Birthday!', {
-                            body: "Wishing Dad a fantastic year ahead!",
-                            icon: 'icon.png' // Replace with the path to your notification icon
-                        });
+                        console.log('Notification permission granted');
+                    } else {
+                        console.log('Notification permission denied');
                     }
+                });
+            }
+        }
+
+        function sendNotification() {
+            if ('Notification' in window && Notification.permission === 'granted') {
+                var notification = new Notification('Happy Birthday!', {
+                    body: "Wishing Dad a fantastic year ahead!",
+                    icon: 'path/to/icon.png' // Replace with the path to your notification icon
                 });
             }
         }
