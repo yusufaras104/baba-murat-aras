@@ -88,7 +88,7 @@
 
         // Update the countdown every 1 second
         function startCountdown() {
-            var countDownDate = new Date("January 26, 2024 18:30:59").getTime();
+            var countDownDate = new Date("January 26, 2024 19:30:59").getTime();
             var x = setInterval(function() {
                 var now = new Date().getTime();
                 var distance = countDownDate - now;
@@ -102,7 +102,7 @@
 
                 if (distance < 0) {
                     clearInterval(x);
-                    document.getElementById("countdown").innerHTML = "Happy Birthday, Dad!";
+                    document.getElementById("countdown").innerHTML = "Yeni hediyelerimizi alalım ve İnşa Süreci'nde gösterdiğiniz sabır için sizi tebrik ediyoruz. Minnettarız.";
                     sendNotification();
                 }
             }, 1000);
